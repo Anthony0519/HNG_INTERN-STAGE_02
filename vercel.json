@@ -1,0 +1,27 @@
+
+{
+    "name": "hng-intern-stage_02",
+    "builds": [
+      {
+        "src": "main.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/api/v1(.*)",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/main.py"
+      }
+    ]
+  }
